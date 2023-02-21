@@ -1,0 +1,35 @@
+
+<p>phone-book works!</p>
+<div>
+    <input type="text" placeholder="Enter Full Name" id="name" name="name" [(ngModel)]="newContactName" required>
+</div>
+<div class="col">
+  <input type="text" placeholder="Enter Phone" id="number" name = "number" [(ngModel)]="newContactNumber" required>
+</div>
+<div>
+    <button type="button" class="btn btn-primary" (click)="addContact()">Save changes</button>
+</div>
+
+<div class="wrapper" *ngIf = "updateContactDetails">
+    <input type="text" name="name" [(ngModel)]="updateContactDetails.name">
+    <input type="text" name ="number" [(ngModel)]="updateContactDetails.number">
+</div>
+
+<div>
+    <table>
+      <tr>
+          <th>Name</th>
+          <th>Phone Number</th>
+
+      </tr>
+      <tr *ngFor = "let contact of contacts; let i=index">
+          <td>{{contact.name}}</td>
+          <td>{{contact.number}}</td>
+          <td> 
+              <span><button type="button" [class.selected] = "contact === updateContactDetails"
+                (click)="updateContact(contact)" >Edit</button></span>
+              <span><button (click)="deleteContact(i)">Delete</button></span>
+          </td>
+      </tr>
+    </table>
+</div>
