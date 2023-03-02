@@ -5,7 +5,7 @@ import { Contacts } from 'src/app/interfaces/phonebook';
 @Component({
   selector: 'app-phonebook',
   templateUrl: './phonebook.component.html',
-  styleUrls: ['./phonebook.component.css']
+  styleUrls: ['./phonebook.component.scss']
 })
 export class PhonebookComponent {
   contacts = CONTACTS;
